@@ -1,0 +1,224 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    background-image: url(../img/noise-bg.png);
+    background-repeat: repeat;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+    font-family: Mona Sans;
+    src: url(../fonts/Mona-Sans-BoldWide.ttf);
+}
+
+$primary-color: #fff;
+$secondary-color: #000;
+$primary-font: 'Mona Sans', sans-serif;
+$primary-font-color: #000;
+$secondary-font-color: #CDD4E1;
+$control-button-border: 0.0813rem solid #CDD4E1;
+$control-button-size: 4.375rem;
+$sub-left: 25%;
+$sub-top: 48%;
+$add-top: 11%;
+$add-left: 12%;
+
+@mixin control-button {
+  width: $control-button-size;
+  height: $control-button-size;
+  border-radius: 50%;
+  border: $control-button-border;
+  position: relative;
+}
+
+.dark-mode {
+    background-color: $secondary-color;
+  
+    .counter-txt {
+      color: $primary-font-color;
+    }
+  
+    .switch-con {
+      img {
+        display: block;
+      }
+  
+      .dark-mode-icon {
+        display: none;
+      }
+    }
+  
+    .control-button {
+      .dark-sub,
+      .dark-add {
+        display: block;
+      }
+  
+      .light-sub,
+      .light-add {
+        display: none;
+      }
+    }
+}
+  
+.light-mode {
+    background-color: $primary-color;
+  
+    .counter-txt {
+      color: $secondary-font-color;
+    }
+  
+    .switch-con {
+      img {
+        display: block;
+      }
+  
+      .light-mode-icon {
+        display: none;
+      }
+    }
+  
+    .control-button {
+      .dark-sub,
+      .dark-add {
+        display: none;
+      }
+  
+      .light-sub,
+      .light-add {
+        display: block;
+      }
+    }
+}
+
+body {
+    background-color: $primary-color;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $secondary-color;
+    }
+  }
+
+.switch-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.switch-con {
+  margin-top: 4rem;
+}
+
+.light-mode-icon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .light-mode-icon {
+      display: block;
+    }
+
+    .dark-mode-icon {
+        display: none;
+    }
+}
+
+.counter-con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    .counter-txt {
+      font-family: $primary-font;
+      color: $primary-font-color;
+      font-size: 7.5rem;
+    }
+  
+    @media (prefers-color-scheme: dark) {
+      .counter-txt {
+        color: $secondary-font-color;
+      }
+    }
+  }
+
+.sub-add-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: fixed;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+}
+
+.control-button {
+  @include control-button;
+  position: relative;
+
+  .light-sub {
+    position: absolute;
+    left: $sub-left;
+    top: $sub-top;
+  }
+
+  .light-add {
+    position: absolute;
+    left: $add-left;
+    top: $add-top;
+  }
+
+  .dark-sub {
+    position: absolute;
+    left: $sub-left;
+    top: $sub-top;
+    display: none;
+   }
+    
+
+  .dark-add {
+    position: absolute;
+    left: $add-left;
+    top: $add-top;
+    display: none;
+   }
+
+   @media (prefers-color-scheme: dark) {
+    .dark-sub,.dark-add {
+        display: block;
+    }
+
+    .light-sub,.light-add {
+      display: none;
+    }
+   }
+}
+
+   
+
