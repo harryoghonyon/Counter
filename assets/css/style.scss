@@ -49,6 +49,11 @@ $sub-left: 25%;
 $sub-top: 48%;
 $add-top: 11%;
 $add-left: 12%;
+$padding-small: 2rem;
+$padding-medium: 6rem;
+$padding-large: 12rem;
+$padding-xlarge: 27rem;
+$padding-xxlarge: 30rem;
 
 @mixin control-button {
   width: $control-button-size;
@@ -149,12 +154,32 @@ body {
 .sub-add-wrap {
   display: flex;
   justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: $padding-small;
+  padding-right: $padding-small;
   position: fixed;
   bottom: 8%;
   left: 0;
   right: 0;
+
+  @media (min-width: 768px) {
+    padding-left: $padding-medium;
+    padding-right: $padding-medium;
+  }
+
+  @media (min-width: 1100px) {
+    padding-left: $padding-large;
+    padding-right: $padding-large;
+  }
+
+  @media (min-width: 1500px) {
+    padding-left: $padding-xlarge;
+    padding-right: $padding-xlarge;
+  }
+
+  @media (min-width: 1728px) {
+    padding-left: $padding-xxlarge;
+    padding-right: $padding-xxlarge;
+  }
 }
 
 .control-button {

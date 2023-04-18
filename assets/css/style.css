@@ -112,6 +112,30 @@ body.dark-mode {
   left: 0;
   right: 0;
 }
+@media (min-width: 768px) {
+  .sub-add-wrap {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+@media (min-width: 1100px) {
+  .sub-add-wrap {
+    padding-left: 12rem;
+    padding-right: 12rem;
+  }
+}
+@media (min-width: 1500px) {
+  .sub-add-wrap {
+    padding-left: 27rem;
+    padding-right: 27rem;
+  }
+}
+@media (min-width: 1728px) {
+  .sub-add-wrap {
+    padding-left: 30rem;
+    padding-right: 30rem;
+  }
+}
 
 .control-button {
   width: 4.375rem;
