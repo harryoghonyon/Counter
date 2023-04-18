@@ -43,6 +43,7 @@ $primary-font: 'Mona Sans', sans-serif;
 $primary-font-color: #000;
 $secondary-font-color: #CDD4E1;
 $control-button-border: 0.0813rem solid #CDD4E1;
+$dark-control-button-border: 0.0813rem solid #4C4F54;
 $control-button-size: 4.375rem;
 $sub-left: 25%;
 $sub-top: 48%;
@@ -55,18 +56,18 @@ $add-left: 12%;
   border-radius: 50%;
   border: $control-button-border;
   position: relative;
+  cursor: pointer;
 }
 
 .dark-mode {
-    background-color: $secondary-color;
-  
-    .counter-txt {
-      color: $primary-font-color;
+    #counter-txt {
+      color: $secondary-font-color;
     }
   
     .switch-con {
-      img {
+      .light-mode-icon {
         display: block;
+        cursor: pointer;
       }
   
       .dark-mode-icon {
@@ -75,6 +76,8 @@ $add-left: 12%;
     }
   
     .control-button {
+      border: $dark-control-button-border;
+
       .dark-sub,
       .dark-add {
         display: block;
@@ -83,47 +86,19 @@ $add-left: 12%;
       .light-sub,
       .light-add {
         display: none;
-      }
-    }
-}
-  
-.light-mode {
-    background-color: $primary-color;
-  
-    .counter-txt {
-      color: $secondary-font-color;
-    }
-  
-    .switch-con {
-      img {
-        display: block;
-      }
-  
-      .light-mode-icon {
-        display: none;
-      }
-    }
-  
-    .control-button {
-      .dark-sub,
-      .dark-add {
-        display: none;
-      }
-  
-      .light-sub,
-      .light-add {
-        display: block;
       }
     }
 }
 
 body {
-    background-color: $primary-color;
+  background-color: $primary-color;
+  transition: background-color 0.5s ease-in-out;
 
-    @media (prefers-color-scheme: dark) {
-      background-color: $secondary-color;
-    }
+  &.dark-mode {
+    background-color: $secondary-color;
+    transition: background-color 0.5s ease-in-out;
   }
+}
 
 .switch-wrap {
   display: flex;
@@ -138,34 +113,38 @@ body {
     display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    .light-mode-icon {
-      display: block;
-    }
-
-    .dark-mode-icon {
-        display: none;
-    }
+.dark-mode-icon {
+  cursor: pointer;
 }
 
+// @media (prefers-color-scheme: dark) {
+//     .light-mode-icon {
+//       display: block;
+//     }
+
+//     .dark-mode-icon {
+//         display: none;
+//     }
+// }
+
 .counter-con {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   
-    .counter-txt {
-      font-family: $primary-font;
-      color: $primary-font-color;
-      font-size: 7.5rem;
-    }
-  
-    @media (prefers-color-scheme: dark) {
-      .counter-txt {
-        color: $secondary-font-color;
-      }
-    }
+  .counter-txt {
+    font-family: $primary-font;
+    color: $primary-font-color;
+    font-size: 7.5rem;
   }
+  
+    // @media (prefers-color-scheme: dark) {
+    //   .counter-txt {
+    //     color: $secondary-font-color;
+    //   }
+    // }
+}
 
 .sub-add-wrap {
   display: flex;
@@ -209,15 +188,15 @@ body {
     display: none;
    }
 
-   @media (prefers-color-scheme: dark) {
-    .dark-sub,.dark-add {
-        display: block;
-    }
+  //  @media (prefers-color-scheme: dark) {
+  //   .dark-sub,.dark-add {
+  //       display: block;
+  //   }
 
-    .light-sub,.light-add {
-      display: none;
-    }
-   }
+  //   .light-sub,.light-add {
+  //     display: none;
+  //   }
+  //  }
 }
 
    

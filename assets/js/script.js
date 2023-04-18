@@ -1,19 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const darkModeIcon = document.querySelector(".dark-mode-icon");
-  const lightModeIcon = document.querySelector(".light-mode-icon");
+const content = document.getElementsByTagName("body")[0];
+const lightModeIcon = document.querySelector(".light-mode-icon");
+const darkModeIcon = document.querySelector(".dark-mode-icon");
 
-  darkModeIcon.addEventListener("click", () => {
-    document.body.classList.add("dark-mode");
-    localStorage.setItem("mode", "dark");
-  });
+darkModeIcon.addEventListener("click", () => {
+  content.classList.add("dark-mode");
+});
 
-  lightModeIcon.addEventListener("click", () => {
-    document.body.classList.remove("dark-mode");
-    localStorage.setItem("mode", "light");
-  });
-
-  const savedMode = localStorage.getItem("mode");
-  if (savedMode === "dark") {
-    document.body.classList.add("dark-mode");
-  }
+lightModeIcon.addEventListener("click", () => {
+  content.classList.remove("dark-mode");
 });

@@ -42,17 +42,18 @@ table {
   font-family: Mona Sans;
   src: url(../fonts/Mona-Sans-BoldWide.ttf);
 }
-.dark-mode {
-  background-color: #000;
+.dark-mode #counter-txt {
+  color: #CDD4E1;
 }
-.dark-mode .counter-txt {
-  color: #000;
-}
-.dark-mode .switch-con img {
+.dark-mode .switch-con .light-mode-icon {
   display: block;
+  cursor: pointer;
 }
 .dark-mode .switch-con .dark-mode-icon {
   display: none;
+}
+.dark-mode .control-button {
+  border: 0.0813rem solid #4C4F54;
 }
 .dark-mode .control-button .dark-sub,
 .dark-mode .control-button .dark-add {
@@ -63,34 +64,13 @@ table {
   display: none;
 }
 
-.light-mode {
-  background-color: #fff;
-}
-.light-mode .counter-txt {
-  color: #CDD4E1;
-}
-.light-mode .switch-con img {
-  display: block;
-}
-.light-mode .switch-con .light-mode-icon {
-  display: none;
-}
-.light-mode .control-button .dark-sub,
-.light-mode .control-button .dark-add {
-  display: none;
-}
-.light-mode .control-button .light-sub,
-.light-mode .control-button .light-add {
-  display: block;
-}
-
 body {
   background-color: #fff;
+  transition: background-color 0.5s ease-in-out;
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-  }
+body.dark-mode {
+  background-color: #000;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .switch-wrap {
@@ -106,14 +86,10 @@ body {
   display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .light-mode-icon {
-    display: block;
-  }
-  .dark-mode-icon {
-    display: none;
-  }
+.dark-mode-icon {
+  cursor: pointer;
 }
+
 .counter-con {
   position: absolute;
   top: 50%;
@@ -124,11 +100,6 @@ body {
   font-family: "Mona Sans", sans-serif;
   color: #000;
   font-size: 7.5rem;
-}
-@media (prefers-color-scheme: dark) {
-  .counter-con .counter-txt {
-    color: #CDD4E1;
-  }
 }
 
 .sub-add-wrap {
@@ -148,6 +119,7 @@ body {
   border-radius: 50%;
   border: 0.0813rem solid #CDD4E1;
   position: relative;
+  cursor: pointer;
   position: relative;
 }
 .control-button .light-sub {
@@ -171,12 +143,4 @@ body {
   left: 12%;
   top: 11%;
   display: none;
-}
-@media (prefers-color-scheme: dark) {
-  .control-button .dark-sub, .control-button .dark-add {
-    display: block;
-  }
-  .control-button .light-sub, .control-button .light-add {
-    display: none;
-  }
 }/*# sourceMappingURL=style.css.map */
